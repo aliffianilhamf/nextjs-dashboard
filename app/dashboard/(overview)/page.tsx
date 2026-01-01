@@ -1,8 +1,3 @@
-import {
-  fetchCardData,
-  fetchLatestInvoices,
-  fetchRevenue,
-} from "../../lib/data";
 import LatestInvoices from "../../ui/dashboard/latest-invoices";
 import RevenueChart from "../../ui/dashboard/revenue-chart";
 import { lusitana } from "../../ui/fonts";
