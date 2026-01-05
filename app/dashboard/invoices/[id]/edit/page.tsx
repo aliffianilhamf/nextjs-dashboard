@@ -2,6 +2,7 @@ import Form from "@/app/ui/invoices/edit-form";
 import Breadcrumbs from "@/app/ui/invoices/breadcrumbs";
 import { fetchInvoiceById, fetchCustomers } from "@/app/lib/data";
 import { promise } from "zod/v4";
+import { notFound } from "next/navigation";
 
 const Page = async (props: { params: Promise<{ id: string }> }) => {
   const params = await props.params;
@@ -11,6 +12,9 @@ const Page = async (props: { params: Promise<{ id: string }> }) => {
     fetchInvoiceById(id),
     fetchCustomers(),
   ]);
+  if (!invoice) {
+    notFound();
+  }
   return (
     <main>
       <Breadcrumbs
